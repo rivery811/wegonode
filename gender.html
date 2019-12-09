@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<div id = "box">
+		<h3>성별</h3>
+		<input type="radio" name="gender" value ="M" checked>남 |
+		<input type="radio" name="gender" value ="F" checked>여
+		<br>
+		<h3>결혼유무</h3>
+		<input type="radio" name="married" value ="Y" checked>기혼 |
+		<input type="radio" name="married" value ="N" checked>미혼
+		<br>
+		<input type="button" id = "btn"value="확인">
+	
+	</div>
+	<script>
+	 window.onload=()=>{
+		 const genders = document.getElementsByName('gender')
+		 const marrieds = document.getElementsByName('married')
+		 const btn = document.getElementById('btn')
+		 const box = document.getElementById('box')
+		 //const result = document.getElementById('result')
+		 let memo = ''
+		 btn.onclick = function(){
+			 if(memo === ''){
+				 let str = genders[0].checked == true ? 
+				 	marrieds[0].checked == true?'기혼남성':'미혼남성'
+				 :marrieds[0].checked == true?'기혼여성':'미혼여성'	
+				// result.innerHTML = str
+				box.removeChild(this)
+				memo = box.innerHTML
+				box.innerHTML = str
+				box.appendChild(this)
+			 }else{
+				 box.innerHTML = memo
+				box.appendChild(this)
+				memo = ''
+
+			 }
+
+		 }
+
+	 }
+	</script>	
+</body>
+</html>
