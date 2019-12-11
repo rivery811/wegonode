@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+	window.onload= function(){
+		function Person(name,gender){let _name,_gender,_age}
+		
+		Person.prototype.getName = function(){return _name}
+		Person.prototype.getGender = function(){return _gender}
+		Person.prototype.setAge = function(age){_age = age}
+		Person.prototype.getAge = function(){return _age}
+		Person.prototype.toString = function(){
+				return `${person.getName()},${person.getGender()},${person.getAge()}`
+			}		
+		let person = new Person('a','m')
+		person.setAge('20')
+	alert(person.toString())	
+	alert(`${person.getName()},${person.getGender()},${person.getAge()}`)
+	}	
+	</script>
+</body>
+</html>
