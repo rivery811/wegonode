@@ -1,5 +1,5 @@
-function Initiolizer(){
-	this.vending = function(){
+const service ={
+	vending(){
 		Vending.prototype.setChange=function(change){_change= change} 
 		Vending.prototype.getChange=function(){return _change} 
 
@@ -12,24 +12,17 @@ function Initiolizer(){
 		Vending.prototype.setItemList=function(itemList){_itemList= itemList} 
 		Vending.prototype.getItemList=function(){return _itemList} 
 
-	}
-	
-
-
-}
-function VendingService(){
-	this.insertCoin = function(coin){
-		
-		const init =new Initiolizer()
+	},
+	insertCoin(){
+				const init =new Initiolizer()
 		init.vending()
 		const vm = new Vending()
 		vm.setChange(coin)
 		
 		
 		alert(`${vm.getChange()}`)
-	}
-	this.selectItem = function(itemNo, quantity){}
-	this.returnChanger= function(){}
-	this.handleOrder= function(quantity,price,itemName){}
-
+	},
+	selectItem(itemNo, quantity){},
+	returnChanger(){},
+	handleOrder(quantity,price,itemName){}
 }

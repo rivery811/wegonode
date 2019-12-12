@@ -24,13 +24,13 @@
 			box.appendChild(inputText.make())
 			box.appendChild(br.make())
 			box.appendChild(inputButton.make())
-			const btn = document.getElementById('btn')
+
 			
 
-			btn.addEventListener('click',function(){
+			document.getElementById('btn').addEventListener('click',function(){
 				const val = document.getElementById('val')
 				const b = new VendingService()
-				b.insertCoin(`${val.value}`)
+				sevice.insertCoin(`${val.value}`)
 				//alert(`${val.value}`)
 			})
 
