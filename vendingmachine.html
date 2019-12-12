@@ -22,26 +22,36 @@
 			
 
 			document.getElementById('btn').addEventListener('click',function(){
- 				const val = document.getElementById('input')
-				const b = new VendingService()
-				b.insertCoin(`${val.value}`)
-				//alert(`${val.value}`)
-				//const menu = new Factory('div')
-				/* box.removeChild(btn)
-				box.removeChild(input) */
+				 const val = document.getElementById('input')
+				 service.vending()
+				const vm = new Vending()
+				vm.setItemList([{id:1,name:'콜라',price:800},
+								{id:2,name:'사이다',price:1000},
+								{id:3,name:'쥬스',price:1200}]) 
+				const temp = vm.getItemList()
+				service.insertCoin(`${val.value}`)	
 				box.innerHTML=''
-
 				box.appendChild(compo.div('coke')) 
-				coke.textContent = '1.콜라 800원'
+				coke.textContent = temp[0].name+temp[0].price
+				coke.value=temp[0].id
 				box.appendChild(compo.div('sprite')) 
-				sprite.textContent = '2.사이다 800원'
+				sprite.textContent = temp[1].name+temp[1].price
+				sprite.value=temp[1].id
 				box.appendChild(compo.div('juice')) 
-				juice.textContent = '3.쥬스 800원'
+				juice.textContent = temp[2].name+temp[2].price
+				juice.value=temp[2].id
 				box.appendChild(compo.inputText('menu','text'))
 				box.appendChild(compo.br())
 				box.appendChild(compo.inputText('quantity','text'))
 				box.appendChild(compo.br())
 				box.appendChild(compo.inputButton('btn','button','메뉴선택'))
+				document.getElementById('btn').addEventListener('click',function(){
+					const menu = document.getElementById('menu')
+					const quantity = document.getElementById('quantity')
+					service.selectItem(`${menu.value}`,`${quantity.value}`)
+
+				})
+				
 
 
 				//const a = new Looping()

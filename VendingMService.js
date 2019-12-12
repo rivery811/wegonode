@@ -1,5 +1,5 @@
-function Initiolizer(){
-	this.vending = function(){
+const service ={
+	vending(){
 		Vending.prototype.setChange=function(change){_change= change} 
 		Vending.prototype.getChange=function(){return _change} 
 
@@ -12,24 +12,25 @@ function Initiolizer(){
 		Vending.prototype.setItemList=function(itemList){_itemList= itemList} 
 		Vending.prototype.getItemList=function(){return _itemList} 
 
-	}
-	
-
-
-}
-function VendingService(){
-	this.insertCoin = function(coin){
-		
-		const init =new Initiolizer()
-		init.vending()
+	},
+	insertCoin(coin){
+		service.vending()
 		const vm = new Vending()
 		vm.setChange(coin)
 		
 		
 		alert(`${vm.getChange()}`)
+	},
+	selectItem(itemNo, quantity){
+		service.vending()
+		const vm = new Vending() 
+		let total = vm.getItemList().find(i=>i.id==itemNo).price*quantity
+		service.returnChanger(total)
+	},
+	returnChanger(total){
+		service.vending()
+		const vm = new Vending()
+		
+		alert(vm.getChange()-total<0?`잔액부족`:vm.getChange()-total)	
 	}
-	this.selectItem = function(itemNo, quantity){}
-	this.returnChanger= function(){}
-	this.handleOrder= function(quantity,price,itemName){}
-
 }
