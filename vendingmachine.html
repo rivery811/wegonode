@@ -7,34 +7,70 @@
 	<title>Document</title>
 	<script src="VendingM.js"></script>
 	<script src="VendingMService.js"></script>
+	<script src="VendingMachineUtil.js"></script>
 	<script src="Component.js"></script>
 </head>
 <body>
-	<div id = "box"></div>
+	<div id = "box1"></div>
 	<script>
 		window.onload= function(){
-		
-			
-		
-			const inputText = new Factory('inputText')
-			const inputButton = new Factory('inputButton')
-			const br = new Factory('br')
-			const box = document.getElementById('box')
-			
-			box.appendChild(inputText.make())
-			box.appendChild(br.make())
-			box.appendChild(inputButton.make())
-			const btn = document.getElementById('btn')
+			const box = document.body.appendChild(compo.div('box'))
+			box.appendChild(compo.inputText('input','text'))
+			box.appendChild(compo.br())
+			box.appendChild(compo.inputButton('btn','button','동전투입'))
+
 			
 
-			btn.addEventListener('click',function(){
-				const val = document.getElementById('val')
+			document.getElementById('btn').addEventListener('click',function(){
+ 				const val = document.getElementById('input')
 				const b = new VendingService()
 				b.insertCoin(`${val.value}`)
 				//alert(`${val.value}`)
-			})
+				//const menu = new Factory('div')
+				/* box.removeChild(btn)
+				box.removeChild(input) */
+				box.innerHTML=''
+
+				box.appendChild(compo.div('coke')) 
+				coke.textContent = '1.콜라 800원'
+				box.appendChild(compo.div('sprite')) 
+				sprite.textContent = '2.사이다 800원'
+				box.appendChild(compo.div('juice')) 
+				juice.textContent = '3.쥬스 800원'
+				box.appendChild(compo.inputText('menu','text'))
+				box.appendChild(compo.br())
+				box.appendChild(compo.inputText('quantity','text'))
+				box.appendChild(compo.br())
+				box.appendChild(compo.inputButton('btn','button','메뉴선택'))
 
 
+				//const a = new Looping()
+				//alert(a.forTest([1,4,5,6,7,8]))
+				//alert(a.forEachTest([1,4,5,6,7,9]))
+				//alert(a.mapTest([1,4,5,6,7,9]))
+				//alert(a.findTest([1,4,5,6,7,9]))
+				/* alert(a.findTest2([{id:4, name:'사'},
+									{id:9, name:'구'},
+									{id:48, name:'사팔'},
+									{id:6, name:'육'}],8)) */
+				//alert(a.reduceTest([1,2,3,4,5]))
+				//alert(a.filterTest([1,4,5,6,7,12]))
+				/*  alert(a.ofTest([{id:4, name:'사'},
+									{id:9, name:'구'},
+									{id:48, name:'사팔'},
+									{id:6, name:'육'}])) */
+				//alert(a.fromTest([1,2,3,4,5]))
+				//alert(a.argumentsTest(1,2,3))
+				//alert(a.joinTest('안','녕'))
+				//alert(a.sortTest('1','2','6','4','5'))
+				//alert(a.reverseTest('1','2','6','4','5'))
+				// alert(a.todo([
+				// 	{ id: 4, content: 'JavaScript' },
+				// 	{ id: 1, content: 'HTML' },
+				// 	{ id: 2, content: 'CSS' }
+				// 	]))
+
+ 			})
 		}
 	</script>
 </body>

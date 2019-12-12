@@ -1,19 +1,43 @@
-		function InputText(){
-			this.make = function(){
+		const compo = {
+			div(id){
+				const div = document.createElement('div')
+				div.setAttribute('id',id)
+				div.setAttribute('style','border : 1px solid black')		
+				//div.textContent = text
+				return div
+			},
+			inputText(id,type){
 				const input = document.createElement('input')
-				input.setAttribute('type','text')
-				input.setAttribute('id','val')
+				input.setAttribute('type',type)
+				input.setAttribute('id',id)
 				return input
 
+			},
+			inputButton(id,type,val){
+				const input = document.createElement('input')
+				input.setAttribute('type',type)
+				input.setAttribute('value',val)
+				input.setAttribute('id',id)
+				return input
+
+			},
+			br(){
+				const br = document.createElement('br')
+				return br
+
+			}
+
+		}
+		
+		function InputText(){
+			this.make = function(id,type){
+			
+				
 			}
 		}
 		function InputButton(){
-			this.make = function(){
-				const input = document.createElement('input')
-				input.setAttribute('type','button')
-				input.setAttribute('value','버튼')
-				input.setAttribute('id','btn')
-				return input
+			this.make = function(id,type,val){
+				
 
 			}
 		}
@@ -34,6 +58,11 @@
 				choice.value = 0
 			}
 		}
+		function Div(){
+			this.make = function(id,text){
+				
+			}
+		}
 		 function Factory(type){
 				switch(type){
 					case 'inputText' : return new InputText()
@@ -41,6 +70,7 @@
 					case 'inputButton' : return new InputButton()
 							
 					case 'br' : return new Br()
+					case 'div' : return new Div()
 							
 
 				}
